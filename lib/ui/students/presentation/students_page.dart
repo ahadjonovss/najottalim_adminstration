@@ -12,7 +12,9 @@ class StudentsPage extends StatelessWidget {
         child: Column(
           children: [
             OnTap(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, RouteName.addStudent);
+              },
               child: Row(
                 children: [
                   Icon(

@@ -5,6 +5,7 @@ abstract class RouteName {
   static const authorization = 'authorization';
   static const home = 'home';
   static const login = 'login';
+  static const addStudent = 'addStudent';
 }
 
 class AppRoutes {
@@ -15,6 +16,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => SplashPage());
       case RouteName.home:
         return MaterialPageRoute(builder: (_) => MainPage());
+      case RouteName.addStudent:
+        return MaterialPageRoute(builder: (_) => AddStudentPage());
       default:
         return MaterialPageRoute(builder: (_) => const Scaffold());
     }

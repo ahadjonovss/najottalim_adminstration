@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBQjdCWG1spbP4gFYlzwS68KWcBqDPajd0',
-    appId: '1:898707011522:android:fa5908fad3cc7c7c42485b',
+    appId: '1:898707011522:android:de914fc70a85dfee42485b',
     messagingSenderId: '898707011522',
     projectId: 'najottalimapp-e7226',
     storageBucket: 'najottalimapp-e7226.appspot.com',
@@ -59,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB8YE-v3X8mikrNu3M0YI2M0HpszsQRet8',
-    appId: '1:898707011522:ios:1e29275d3d3ec1ea42485b',
+    appId: '1:898707011522:ios:76204c7c8bb8de1942485b',
     messagingSenderId: '898707011522',
     projectId: 'najottalimapp-e7226',
     storageBucket: 'najottalimapp-e7226.appspot.com',
-    iosClientId: '898707011522-d4cf03404vd2dghtemlnr8ujpasfibv6.apps.googleusercontent.com',
-    iosBundleId: 'com.umdgroup.uz.najottalimapp',
+    iosClientId: '898707011522-5dt8jergv2bk1sb9m339vav0i6b2bnig.apps.googleusercontent.com',
+    iosBundleId: 'com.example.najottalimAdminstration',
   );
 }
