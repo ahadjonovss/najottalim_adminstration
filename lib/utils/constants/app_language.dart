@@ -14,7 +14,9 @@ class AppTranslations extends Translations {
           "enter_name_of_the_student": "Talaba ismini kiriting",
           "enter_surname_of_the_student": "Talaba familiyasini kiriting.",
           "name": "Ism",
-          "surname": "Familiya"
+          "surname": "Familiya",
+          "save": "Saqlash",
+          "successfully_added": "talabalar safiga muvaffaqqiyatli qo'shildi!"
         },
         "ru_RU": {
           "log_in_to_your_account": "Войти в личный кабинет",
@@ -27,12 +29,14 @@ class AppTranslations extends Translations {
           "enter_name_of_the_student": "Введите имя студента",
           "enter_surname_of_the_student": "Введите фамилию студента.",
           "name": "Имя",
-          "surname": "Фамилия"
+          "surname": "Фамилия",
+          "save": "Сохранять",
+          "successfully_added": "успешно влился в ряды студентов!"
         },
         "en_EN": {
           "log_in_to_your_account": "Login to your account",
           "email": "Email",
-          "password": "Parol",
+          "password": "Password",
           "login": "Login",
           "enter_your_email": "Enter your email.",
           "enter_your_password": "Enter your password.",
@@ -40,7 +44,9 @@ class AppTranslations extends Translations {
           "enter_name_of_the_student": "Enter name of the student",
           "enter_surname_of_the_student": "Enter surname of the student.",
           "name": "Name",
-          "surname": "Surname"
+          "surname": "Surname",
+          "save": "Save",
+          "successfully_added": "successfully joined the ranks of students!"
         }
       };
 }

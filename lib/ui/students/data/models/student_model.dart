@@ -27,4 +27,14 @@ class StudentModel {
         surname: json["surname"],
         userId: json["userId"]);
   }
+
+  toJson() {
+    return {
+      "balls": [],
+      "docId": docId,
+      "groupId": groupId,
+      "name": name,
+      "surname": surname,
+    };
+  }
 }

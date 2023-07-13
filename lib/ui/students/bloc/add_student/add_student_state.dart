@@ -26,7 +26,8 @@ class AddStudentState extends Equatable {
       AddStudentState(
           status: status ?? this.status,
           message: message ?? this.message,
-          email: email ?? this.email,
+          email:
+              "${(name ?? this.name).toLowerCase().replaceAll("'", '')}${(surname ?? this.surname).toLowerCase().replaceAll("'", '')}${DateTime.now().microsecond}@gmail.com",
           name: name ?? this.name,
           surname: surname ?? this.surname);
   @override

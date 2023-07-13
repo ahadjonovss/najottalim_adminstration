@@ -8,3 +8,5 @@ class UpdateInfoEvent extends AddStudentEvent {
   String? surname;
   UpdateInfoEvent({this.surname, this.name});
 }
+
+class SaveStudentEvent extends AddStudentEvent {}

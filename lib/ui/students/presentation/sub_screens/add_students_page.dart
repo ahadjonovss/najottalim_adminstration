@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:najottalim_adminstration/ui/students/bloc/add_student/add_student_bloc.dart';
 import 'package:najottalim_adminstration/ui/students/presentation/widgets/custom_text_field.dart';
+import 'package:najottalim_adminstration/utils/constants/app_error_snackbar.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class AddStudentPage extends StatelessWidget {
@@ -15,7 +17,30 @@ class AddStudentPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => AddStudentBloc(),
-        child: BlocBuilder<AddStudentBloc, AddStudentState>(
+        child: BlocConsumer<AddStudentBloc, AddStudentState>(
+          listener: (context, state) {
+            if (state.status == ResponseStatus.inFail) {
+              AnimatedSnackBar(
+                builder: (context) => AppErrorSnackBar(text: state.message),
+              ).show(context);
+            } else if (state.status == ResponseStatus.inSuccess) {
+              showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) => CupertinoAlertDialog(
+                        actions: [
+                          CupertinoActionSheetAction(
+                              onPressed: () {
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context, RouteName.home, (route) => false);
+                              },
+                              child: const Text("OK"))
+                        ],
+                        content: Text(
+                            "${state.name} ${state.surname} ${"successfully_added".tr}"),
+                      ));
+            }
+          },
           builder: (context, state) {
             return Container(
               padding: EdgeInsets.all(20.h),
@@ -35,8 +60,7 @@ class AddStudentPage extends StatelessWidget {
                                     color: AdaptiveTheme.of(context)
                                         .theme
                                         .cardColor)),
-                            Text(
-                                "${(state.name ?? '').toLowerCase()}${(state.surname ?? '').toLowerCase()}${DateTime.now().microsecond}@gmail.com",
+                            Text(state.email,
                                 style: AppTextStyles.labelLarge(context))
                           ],
                         ),
@@ -54,14 +78,23 @@ class AddStudentPage extends StatelessWidget {
                         Align(
                             alignment: Alignment.centerRight,
                             child: TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Saqlash",
-                                  style: AppTextStyles.labelLarge(context,
-                                      color: AdaptiveTheme.of(context)
-                                          .theme
-                                          .cardColor),
-                                )))
+                                onPressed: () {
+                                  context
+                                      .read<AddStudentBloc>()
+                                      .add(SaveStudentEvent());
+                                },
+                                child: state.status == ResponseStatus.inProgress
+                                    ? CircularProgressIndicator(
+                                        color: AdaptiveTheme.of(context)
+                                            .theme
+                                            .cardColor)
+                                    : Text(
+                                        "save".tr,
+                                        style: AppTextStyles.labelLarge(context,
+                                            color: AdaptiveTheme.of(context)
+                                                .theme
+                                                .cardColor),
+                                      )))
                       ],
                     )
                 ],
