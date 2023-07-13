@@ -37,3 +37,31 @@ String errorFinder({
 
 double height(context) => MediaQuery.of(context).size.height;
 double width(context) => MediaQuery.of(context).size.width;
+
+BallSpecifics makeBallSpecifics(int ball) {
+  if (ball >= 90) {
+    return BallSpecifics(
+        backgroundImage: AppIcons.more90,
+        ball: ball,
+        backgroundAllignment: Alignment.centerLeft,
+        gradient: [Colors.green, Colors.greenAccent]);
+  } else if (ball <= 90 && ball > 70) {
+    return BallSpecifics(
+        backgroundImage: AppIcons.less90,
+        ball: ball,
+        backgroundAllignment: Alignment.centerLeft,
+        gradient: [Colors.orange, Colors.orangeAccent]);
+  } else if (ball <= 70 && ball > 50) {
+    return BallSpecifics(
+        backgroundImage: AppIcons.less70,
+        ball: ball,
+        backgroundAllignment: Alignment.centerLeft,
+        gradient: [Colors.orange, Colors.orangeAccent]);
+  } else {
+    return BallSpecifics(
+        backgroundImage: AppIcons.less50,
+        ball: ball,
+        backgroundAllignment: Alignment.centerLeft,
+        gradient: [Colors.red.shade700, Colors.redAccent]);
+  }
+}

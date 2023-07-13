@@ -11,6 +11,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: AdaptiveTheme.of(context).theme.backgroundColor,
           title: Image.asset(
             AppImages.Logo,
@@ -19,17 +20,27 @@ class MainPage extends StatelessWidget {
           ),
         ),
         backgroundColor: AdaptiveTheme.of(context).theme.backgroundColor,
-        body: const SafeArea(
+        body: SafeArea(
           child: DefaultTabController(
             length: 3,
             child: Column(
               children: [
-                TabBar(tabs: [
-                  Tab(child: Icon(Icons.person)),
-                  Tab(child: Icon(Icons.book)),
-                  Tab(child: Icon(Icons.group)),
-                ]),
-                Expanded(
+                SizedBox(height: 12.h),
+                TabBar(
+                  tabs: [
+                    Tab(
+                        child: Icon(Icons.person,
+                            color: AdaptiveTheme.of(context).theme.cardColor)),
+                    Tab(
+                        child: Icon(Icons.book,
+                            color: AdaptiveTheme.of(context).theme.cardColor)),
+                    Tab(
+                        child: Icon(Icons.group,
+                            color: AdaptiveTheme.of(context).theme.cardColor)),
+                  ],
+                  indicatorColor: AdaptiveTheme.of(context).theme.cardColor,
+                ),
+                const Expanded(
                   child: TabBarView(children: [
                     StudentsPage(),
                     TeachersPage(),
