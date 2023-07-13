@@ -15,7 +15,7 @@ export 'package:get/get_utils/get_utils.dart';
 export 'package:get_it/get_it.dart';
 export 'package:najottalim_adminstration/app/app.dart';
 export 'package:najottalim_adminstration/data/models/my_response.dart';
-export 'package:najottalim_adminstration/ui/main/presentation/home_page.dart';
+export 'package:najottalim_adminstration/ui/main/presentation/main_page.dart';
 export 'package:najottalim_adminstration/ui/splash/splash.dart';
 export 'package:najottalim_adminstration/utils/constants/app_colors.dart';
 export 'package:najottalim_adminstration/utils/constants/app_language.dart';
