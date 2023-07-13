@@ -6,6 +6,7 @@ abstract class RouteName {
   static const home = 'home';
   static const login = 'login';
   static const addStudent = 'addStudent';
+  static const addGroup = 'addGroup';
 }
 
 class AppRoutes {
@@ -18,6 +19,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => MainPage());
       case RouteName.addStudent:
         return MaterialPageRoute(builder: (_) => AddStudentPage());
+      case RouteName.addGroup:
+        return MaterialPageRoute(builder: (_) => AddGroupsPage());
       default:
         return MaterialPageRoute(builder: (_) => const Scaffold());
     }

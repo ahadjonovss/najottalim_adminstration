@@ -4,4 +4,5 @@ final getIt = GetIt.instance;
 
 void setup() {
   getIt.registerLazySingleton(() => StudentsRepository());
+  getIt.registerLazySingleton(() => GroupsRepository());
 }

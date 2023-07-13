@@ -23,7 +23,7 @@ class StudentsPage extends StatelessWidget {
                     color: AppColors.c006ED1,
                   ),
                   SizedBox(width: 12.h),
-                  Text("Add Student",
+                  Text("add_student".tr,
                       style: AppTextStyles.labelLarge(context,
                           fontSize: 16.h, fontWeight: FontWeight.w300)),
                 ],
