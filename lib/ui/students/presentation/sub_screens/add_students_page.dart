@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:najottalim_adminstration/ui/students/bloc/add_student/add_student_bloc.dart';
-import 'package:najottalim_adminstration/ui/students/presentation/widgets/custom_text_field.dart';
-import 'package:najottalim_adminstration/utils/constants/app_error_snackbar.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class AddStudentPage extends StatelessWidget {
@@ -39,6 +36,7 @@ class AddStudentPage extends StatelessWidget {
                         content: Text(
                             "${state.name} ${state.surname} ${"successfully_added".tr}"),
                       ));
+              context.read<StudentsBloc>().add(GetAllUsersEvent());
             }
           },
           builder: (context, state) {
