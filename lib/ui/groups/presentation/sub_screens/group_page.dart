@@ -56,6 +56,13 @@ class GroupPage extends StatelessWidget {
                         SizedBox(height: 6.h),
                         Text("list_of_students".tr,
                             style: AppTextStyles.labelLarge(context)),
+                        SizedBox(height: 16.h),
+                        ListView.builder(
+                          itemBuilder: (context, index) =>
+                              StudentItem(student: group.students[index]),
+                          shrinkWrap: true,
+                          itemCount: group.students.length,
+                        )
                       ],
                     ),
                   );

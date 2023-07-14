@@ -21,6 +21,8 @@ class AddGroupBloc extends Bloc<AddGroupEvent, AddGroupState> {
     MyResponse myResponse = await getIt<GroupsRepository>().addGroup(GroupModel(
         groupName: state.groupName,
         lessonTime: state.lessonTime,
+        groupId: '',
+        students: [],
         room: state.room));
 
     if (myResponse.message.isNull) {

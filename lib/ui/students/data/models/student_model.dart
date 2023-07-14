@@ -21,11 +21,11 @@ class StudentModel {
   factory StudentModel.fromJson(Map<String, dynamic> json) {
     return StudentModel(
         balls: json['balls'].map((e) => BallModel.fromJson(e)).toList(),
-        docId: json["docId"],
-        groupId: json["groupId"],
-        name: json["name"],
-        surname: json["surname"],
-        userId: json["userId"]);
+        docId: json["docId"] ?? '',
+        groupId: json["groupId"] ?? '',
+        name: json["name"] ?? '',
+        surname: json["surname"] ?? '',
+        userId: json["userId"] ?? '');
   }
 
   toJson() {
@@ -33,6 +33,16 @@ class StudentModel {
       "balls": [],
       "docId": docId,
       "groupId": groupId,
+      "name": name,
+      "surname": surname,
+    };
+  }
+
+  toGroupJson(String newGroupId) {
+    return {
+      "balls": [],
+      "docId": docId,
+      "groupId": newGroupId,
       "name": name,
       "surname": surname,
     };

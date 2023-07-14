@@ -16,6 +16,7 @@ class GroupsBloc extends Bloc<GroupsEvent, GroupsState> {
           status: ResponseStatus.inSuccess, groups: myResponse.data));
     } else {
       emit(state.copyWith(status: ResponseStatus.inFail));
+      print(myResponse.message);
     }
   }
 }

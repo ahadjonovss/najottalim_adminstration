@@ -18,6 +18,7 @@ export 'package:get/get_utils/src/extensions/internacionalization.dart';
 export 'package:get_it/get_it.dart';
 export 'package:najottalim_adminstration/app/app.dart';
 export 'package:najottalim_adminstration/data/models/my_response.dart';
+export 'package:najottalim_adminstration/ui/groups/bloc/add_student_to_group_bloc/add_student_to_group_bloc.dart';
 export 'package:najottalim_adminstration/ui/groups/data/repository/groups_repository.dart';
 export 'package:najottalim_adminstration/ui/groups/presentation/sub_screens/add_groups_page.dart';
 export 'package:najottalim_adminstration/ui/groups/presentation/sub_screens/add_student_to_group_page.dart';

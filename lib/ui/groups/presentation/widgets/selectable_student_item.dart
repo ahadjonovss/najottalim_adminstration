@@ -2,13 +2,19 @@ import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class SelectableStudentItem extends StatelessWidget {
   StudentModel student;
-  SelectableStudentItem({required this.student, super.key});
+  VoidCallback onTap;
+  bool isSelected;
+  SelectableStudentItem(
+      {required this.isSelected,
+      required this.onTap,
+      required this.student,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
     return student.groupId.isEmpty
         ? OnTap(
-            onTap: () {},
+            onTap: onTap,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.h),
               width: width(context),
@@ -31,8 +37,10 @@ class SelectableStudentItem extends StatelessWidget {
                         ),
                       ),
                       Checkbox(
-                        value: false,
-                        onChanged: (value) {},
+                        value: isSelected,
+                        onChanged: (value) {
+                          // onTap;
+                        },
                       )
                     ],
                   ),
