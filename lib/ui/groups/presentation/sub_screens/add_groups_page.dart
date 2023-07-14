@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:najottalim_adminstration/ui/groups/bloc/add_group_bloc/add_group_bloc.dart';
 import 'package:najottalim_adminstration/ui/groups/presentation/widgets/group_text_field.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
@@ -14,8 +15,8 @@ class AddGroupsPage extends StatelessWidget {
         title: Text("add_student".tr),
       ),
       body: BlocProvider(
-        create: (context) => AddStudentBloc(),
-        child: BlocConsumer<AddStudentBloc, AddStudentState>(
+        create: (context) => AddGroupBloc(),
+        child: BlocConsumer<AddGroupBloc, AddGroupState>(
           listener: (context, state) {
             if (state.status == ResponseStatus.inFail) {
               AnimatedSnackBar(
@@ -35,7 +36,7 @@ class AddGroupsPage extends StatelessWidget {
                               child: const Text("OK"))
                         ],
                         content: Text(
-                            "${state.name} ${state.surname} ${"successfully_added".tr}"),
+                            "${state.groupName} ${"successfully_added".tr}"),
                       ));
             }
           },
@@ -49,53 +50,27 @@ class AddGroupsPage extends StatelessWidget {
                   GroupTextField(label: "group_name"),
                   GroupTextField(label: "specific_room"),
                   GroupTextField(label: "lesson_time"),
-                  if (state.name.isNotEmpty && state.surname.isNotEmpty)
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text("${"email".tr}:   ",
-                                style: AppTextStyles.labelLarge(context,
+                  if (state.groupName.isNotEmpty && state.room.isNotEmpty)
+                    Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                            onPressed: () {
+                              context
+                                  .read<AddGroupBloc>()
+                                  .add(SaveGroupEvent());
+                            },
+                            child: state.status == ResponseStatus.inProgress
+                                ? CircularProgressIndicator(
                                     color: AdaptiveTheme.of(context)
                                         .theme
-                                        .cardColor)),
-                            Text(state.email,
-                                style: AppTextStyles.labelLarge(context))
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text("${"password".tr}:   ",
-                                style: AppTextStyles.labelLarge(context,
-                                    color: AdaptiveTheme.of(context)
-                                        .theme
-                                        .cardColor)),
-                            Text("12345678",
-                                style: AppTextStyles.labelLarge(context))
-                          ],
-                        ),
-                        Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                                onPressed: () {
-                                  context
-                                      .read<AddStudentBloc>()
-                                      .add(SaveStudentEvent());
-                                },
-                                child: state.status == ResponseStatus.inProgress
-                                    ? CircularProgressIndicator(
+                                        .cardColor)
+                                : Text(
+                                    "save".tr,
+                                    style: AppTextStyles.labelLarge(context,
                                         color: AdaptiveTheme.of(context)
                                             .theme
-                                            .cardColor)
-                                    : Text(
-                                        "save".tr,
-                                        style: AppTextStyles.labelLarge(context,
-                                            color: AdaptiveTheme.of(context)
-                                                .theme
-                                                .cardColor),
-                                      )))
-                      ],
-                    )
+                                            .cardColor),
+                                  )))
                 ],
               ),
             );

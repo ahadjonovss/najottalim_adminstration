@@ -12,4 +12,8 @@ class GroupModel {
         lessonTime: json["lessonTime"],
         room: json["room"]);
   }
+
+  toJson() {
+    return {"name": groupName, "lessonTime": lessonTime, "room": room};
+  }
 }

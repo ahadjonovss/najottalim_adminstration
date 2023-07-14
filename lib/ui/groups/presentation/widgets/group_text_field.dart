@@ -1,3 +1,4 @@
+import 'package:najottalim_adminstration/ui/groups/bloc/add_group_bloc/add_group_bloc.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class GroupTextField extends StatelessWidget {
@@ -10,9 +11,11 @@ class GroupTextField extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 22.h),
       child: TextField(
           onChanged: (value) {
-            context.read<AddStudentBloc>().add(UpdateInfoEvent(
-                name: label == "name" ? value : null,
-                surname: label == "name" ? null : value));
+            context.read<AddGroupBloc>().add(UpdateGroupInfoEvent(
+                  lessonTime: label == "lesson_time" ? value : null,
+                  groupName: label == "group_name" ? value : null,
+                  room: label == "specific_room" ? value : null,
+                ));
           },
           style: AppTextStyles.labelLarge(context),
           cursorColor: AdaptiveTheme.of(context).theme.cardColor,
@@ -36,7 +39,7 @@ class GroupTextField extends StatelessWidget {
                   : label == "specific_room"
                       ? "enter_room_name".tr
                       : "enter_lesson_time".tr,
-              border: OutlineInputBorder())),
+              border: const OutlineInputBorder())),
     );
   }
 }
