@@ -32,21 +32,18 @@ class StudentsPage extends StatelessWidget {
             SizedBox(height: 6.h),
             Divider(color: AdaptiveTheme.of(context).theme.focusColor),
             SizedBox(height: 12.h),
-            BlocProvider(
-              create: (context) => StudentsBloc()..add(GetAllUsersEvent()),
-              child: BlocBuilder<StudentsBloc, StudentsState>(
-                builder: (context, state) {
-                  if (state.status == ResponseStatus.inSuccess) {
-                    List<StudentModel> students = state.students;
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: students.length,
-                        itemBuilder: (context, index) =>
-                            StudentItem(student: students[index]));
-                  }
-                  return Container();
-                },
-              ),
+            BlocBuilder<StudentsBloc, StudentsState>(
+              builder: (context, state) {
+                if (state.status == ResponseStatus.inSuccess) {
+                  List<StudentModel> students = state.students;
+                  return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: students.length,
+                      itemBuilder: (context, index) =>
+                          StudentItem(student: students[index]));
+                }
+                return Container();
+              },
             )
           ],
         ),

@@ -5,7 +5,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyApp();
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (context) => StudentsBloc()..add(GetAllUsersEvent()))
+    ], child: MyApp());
   }
 }
 

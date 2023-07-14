@@ -7,6 +7,8 @@ abstract class RouteName {
   static const login = 'login';
   static const addStudent = 'addStudent';
   static const addGroup = 'addGroup';
+  static const group = 'group';
+  static const addStudentToTheGroup = 'addStudentToGroupPage';
 }
 
 class AppRoutes {
@@ -21,6 +23,12 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => AddStudentPage());
       case RouteName.addGroup:
         return MaterialPageRoute(builder: (_) => AddGroupsPage());
+      case RouteName.addStudentToTheGroup:
+        return MaterialPageRoute(
+            builder: (_) => AddStudentToGroupPage(group: args as GroupModel));
+      case RouteName.group:
+        return MaterialPageRoute(
+            builder: (_) => GroupPage(group: args as GroupModel));
       default:
         return MaterialPageRoute(builder: (_) => const Scaffold());
     }

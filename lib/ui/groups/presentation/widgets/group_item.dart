@@ -7,7 +7,9 @@ class GroupItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnTap(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, RouteName.group, arguments: group);
+      },
       child: SizedBox(
         width: width(context),
         child: Column(

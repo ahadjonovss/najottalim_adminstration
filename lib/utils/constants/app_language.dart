@@ -23,7 +23,8 @@ class AppTranslations extends Translations {
           "enter_group_name": "Guruh nomini kiriting",
           "enter_room_name": "Biriktirilgan xonani kiriting",
           "enter_lesson_time": "Dars jadvalini kiriting",
-          "created_successfully": " guruhi muvaffaqqiyatli yaratildi!"
+          "created_successfully": " guruhi muvaffaqqiyatli yaratildi!",
+          "list_of_students": "Talabalar ro'yxati",
         },
         "ru_RU": {
           "log_in_to_your_account": "Войти в личный кабинет",
@@ -45,7 +46,8 @@ class AppTranslations extends Translations {
           "enter_group_name": "Введите название групп",
           "enter_room_name": "Введите класса",
           "enter_lesson_time": "Введите расписание занятий",
-          "created_successfully": " создано успешно!"
+          "created_successfully": " создано успешно!",
+          "list_of_students": "Список студентов",
         },
         "en_EN": {
           "log_in_to_your_account": "Login to your account",
@@ -67,7 +69,8 @@ class AppTranslations extends Translations {
           "enter_group_name": "Enter name of the group",
           "enter_room_name": "Enter name of the class room",
           "enter_lesson_time": "Enter class schedule",
-          "created_successfully": " created successfully!"
+          "created_successfully": " created successfully!",
+          "list_of_students": "List of students",
         }
       };
 }
