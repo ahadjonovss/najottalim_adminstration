@@ -36,7 +36,7 @@ class AddGroupsPage extends StatelessWidget {
                               child: const Text("OK"))
                         ],
                         content: Text(
-                            "${state.groupName} ${"successfully_added".tr}"),
+                            "${state.groupName} ${"created_successfully".tr}"),
                       ));
             }
           },
