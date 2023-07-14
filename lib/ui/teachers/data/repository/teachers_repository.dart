@@ -25,7 +25,7 @@ class TeachersRepository {
     return myResponse;
   }
 
-  Future<MyResponse> addStudent(TeacherModel teacher, String email) async {
+  Future<MyResponse> addTeacher(TeacherModel teacher, String email) async {
     MyResponse myResponse = MyResponse();
     FirebaseFirestore instance = getFirebaseInstance();
     FirebaseAuth authInstance = getAuthInstance();

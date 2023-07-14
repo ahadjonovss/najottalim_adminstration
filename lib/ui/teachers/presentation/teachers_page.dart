@@ -1,4 +1,3 @@
-import 'package:najottalim_adminstration/ui/teachers/bloc/teachers_bloc/teachers_bloc.dart';
 import 'package:najottalim_adminstration/ui/teachers/presentation/widgets/teacher_item.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
@@ -15,7 +14,7 @@ class TeachersPage extends StatelessWidget {
           children: [
             OnTap(
               onTap: () {
-                Navigator.pushNamed(context, RouteName.addStudent);
+                Navigator.pushNamed(context, RouteName.addTeacher);
               },
               child: Row(
                 children: [

@@ -26,7 +26,8 @@ class AppTranslations extends Translations {
           "created_successfully": " guruhi muvaffaqqiyatli yaratildi!",
           "list_of_students": "Talabalar ro'yxati",
           "add_group": "Guruh qo'shish",
-          "add_teacher": "Mentor qo'shish"
+          "add_teacher": "Mentor qo'shish",
+          "teacher_added": " jamoa safiga muvaffaqqiyatli qo'shildi!"
         },
         "ru_RU": {
           "log_in_to_your_account": "Войти в личный кабинет",
@@ -51,7 +52,8 @@ class AppTranslations extends Translations {
           "created_successfully": " создано успешно!",
           "list_of_students": "Список студентов",
           "add_group": "Добавить группу",
-          "add_teacher": "Добавить наставника"
+          "add_teacher": "Добавить наставника",
+          "teacher_added": " успешно присоединился к команде!"
         },
         "en_EN": {
           "log_in_to_your_account": "Login to your account",
@@ -76,7 +78,8 @@ class AppTranslations extends Translations {
           "created_successfully": " created successfully!",
           "list_of_students": "List of students",
           "add_group": "Add group",
-          "add_teacher": "Add mentor"
+          "add_teacher": "Add mentor",
+          "teacher_added": " successfully joined the team!"
         }
       };
 }
