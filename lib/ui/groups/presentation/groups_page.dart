@@ -1,5 +1,3 @@
-import 'package:najottalim_adminstration/ui/groups/bloc/groups_bloc/groups_bloc.dart';
-import 'package:najottalim_adminstration/ui/groups/presentation/widgets/group_item.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class GroupsPage extends StatelessWidget {
@@ -25,7 +23,7 @@ class GroupsPage extends StatelessWidget {
                     color: AppColors.c006ED1,
                   ),
                   SizedBox(width: 12.h),
-                  Text("Add Group",
+                  Text("add_group".tr,
                       style: AppTextStyles.labelLarge(context,
                           fontSize: 16.h, fontWeight: FontWeight.w300)),
                 ],

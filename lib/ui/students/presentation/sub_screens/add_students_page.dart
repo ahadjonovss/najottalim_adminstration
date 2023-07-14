@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class AddStudentPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class AddStudentPage extends StatelessWidget {
       body: BlocProvider(
         create: (context) => AddStudentBloc(),
         child: BlocConsumer<AddStudentBloc, AddStudentState>(
-          listener: (context, state) {
+          listener: (context, state) async {
             if (state.status == ResponseStatus.inFail) {
               AnimatedSnackBar(
                 builder: (context) => AppErrorSnackBar(text: state.message),
@@ -46,8 +47,8 @@ class AddStudentPage extends StatelessWidget {
               width: width(context),
               child: Column(
                 children: [
-                  CustomTextField(label: "name"),
                   CustomTextField(label: "surname"),
+                  CustomTextField(label: "name"),
                   if (state.name.isNotEmpty && state.surname.isNotEmpty)
                     Column(
                       children: [
@@ -76,10 +77,12 @@ class AddStudentPage extends StatelessWidget {
                         Align(
                             alignment: Alignment.centerRight,
                             child: TextButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   context
                                       .read<AddStudentBloc>()
                                       .add(SaveStudentEvent());
+                                  await Clipboard.setData(
+                                      ClipboardData(text: state.email));
                                 },
                                 child: state.status == ResponseStatus.inProgress
                                     ? CircularProgressIndicator(

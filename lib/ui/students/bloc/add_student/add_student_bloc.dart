@@ -14,7 +14,7 @@ class AddStudentBloc extends Bloc<AddStudentEvent, AddStudentState> {
         surname: event.surname,
         name: event.name,
         email:
-            "${(event.name ?? '').toLowerCase()}${(event.surname ?? '').toLowerCase()}${DateTime.now().second}@gmail.com"));
+            "${(event.name ?? state.name).toLowerCase()}${(event.surname ?? state.surname).toLowerCase()}${DateTime.now().second}@gmail.com"));
   }
 
   addStudent(SaveStudentEvent event, emit) async {

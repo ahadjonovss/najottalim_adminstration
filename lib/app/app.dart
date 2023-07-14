@@ -8,6 +8,8 @@ class App extends StatelessWidget {
     return MultiBlocProvider(providers: [
       BlocProvider(
           create: (context) => StudentsBloc()..add(GetAllUsersEvent())),
+      BlocProvider(
+          create: (context) => TeachersBloc()..add(GetAllTeachersEvent())),
     ], child: MyApp());
   }
 }

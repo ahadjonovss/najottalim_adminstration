@@ -8,7 +8,7 @@ class StudentsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AdaptiveTheme.of(context).theme.backgroundColor,
       body: Padding(
-        padding: EdgeInsets.all(16.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: Column(
           children: [
             OnTap(
@@ -31,16 +31,18 @@ class StudentsPage extends StatelessWidget {
             ),
             SizedBox(height: 6.h),
             Divider(color: AdaptiveTheme.of(context).theme.focusColor),
-            SizedBox(height: 12.h),
+            SizedBox(height: 8.h),
             BlocBuilder<StudentsBloc, StudentsState>(
               builder: (context, state) {
                 if (state.status == ResponseStatus.inSuccess) {
                   List<StudentModel> students = state.students;
-                  return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: students.length,
-                      itemBuilder: (context, index) =>
-                          StudentItem(student: students[index]));
+                  return Expanded(
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: students.length,
+                        itemBuilder: (context, index) =>
+                            StudentItem(student: students[index])),
+                  );
                 }
                 return Container();
               },
