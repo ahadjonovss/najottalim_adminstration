@@ -21,6 +21,7 @@ class AddTeacherBloc extends Bloc<AddTeacherEvent, AddTeacherState> {
     emit(state.copyWith(status: ResponseStatus.inProgress));
     MyResponse myResponse = await getIt<TeachersRepository>().addTeacher(
         TeacherModel(
+            groupIds: [],
             surname: state.surname,
             userId: '',
             name: state.name,

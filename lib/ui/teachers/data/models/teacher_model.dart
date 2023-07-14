@@ -1,9 +1,8 @@
-import 'package:najottalim_adminstration/ui/students/data/models/group_model.dart';
-
 class TeacherModel {
   final String name;
   final String surname;
-  final List<GroupModel> groups;
+  List groups;
+  final List groupIds;
   final String teacherId;
   final String userId;
 
@@ -11,15 +10,17 @@ class TeacherModel {
       {required this.surname,
       required this.userId,
       required this.name,
+      required this.groupIds,
       required this.groups,
       required this.teacherId});
 
   factory TeacherModel.fromJson(Map<String, dynamic> json) {
     return TeacherModel(
-        surname: json["surname"],
+        surname: json["surname"] ?? '',
+        groupIds: json["groupIds"] ?? [],
         userId: json["userId"] ?? '',
-        name: json["name"],
-        groups: json["groups"].map((e) => GroupModel.fromJson(e)).toList(),
+        name: json["name"] ?? '',
+        groups: [],
         teacherId: json["teacherId"] ?? '');
   }
 
@@ -28,7 +29,7 @@ class TeacherModel {
       "name": name,
       "userId": userId,
       "surname": surname,
-      "groups": groups.map((e) => e.toJson()),
+      "groupIds": groupIds,
       "teacherId": teacherId
     };
   }

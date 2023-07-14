@@ -1,4 +1,3 @@
-import 'package:najottalim_adminstration/ui/teachers/presentation/sub_screens/add_teacher_page.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 abstract class RouteName {
@@ -11,6 +10,8 @@ abstract class RouteName {
   static const addTeacher = 'addTeacher';
   static const group = 'group';
   static const addStudentToTheGroup = 'addStudentToGroupPage';
+  static const teacherPage = 'teacherPage';
+  static const addGroupToTeacher = 'addGroupToTeacher';
 }
 
 class AppRoutes {
@@ -25,8 +26,15 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => AddStudentPage());
       case RouteName.addGroup:
         return MaterialPageRoute(builder: (_) => AddGroupsPage());
+      case RouteName.teacherPage:
+        return MaterialPageRoute(
+            builder: (_) => TeacherPage(teacher: args as TeacherModel));
       case RouteName.addTeacher:
         return MaterialPageRoute(builder: (_) => AddTeacherPage());
+      case RouteName.addGroupToTeacher:
+        return MaterialPageRoute(
+            builder: (_) =>
+                AddGroupToTeacherPage(teacher: args as TeacherModel));
       case RouteName.addStudentToTheGroup:
         return MaterialPageRoute(
             builder: (_) => AddStudentToGroupPage(group: args as GroupModel));

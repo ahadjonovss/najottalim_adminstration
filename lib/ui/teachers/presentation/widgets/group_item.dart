@@ -1,15 +1,13 @@
 import '../../../../utils/tools/file_importer.dart';
 
-class TeacherItem extends StatelessWidget {
-  TeacherModel teacher;
-  TeacherItem({required this.teacher, super.key});
+class GroupItem extends StatelessWidget {
+  GroupModel group;
+  GroupItem({required this.group, super.key});
 
   @override
   Widget build(BuildContext context) {
     return OnTap(
-      onTap: () {
-        Navigator.pushNamed(context, RouteName.teacherPage, arguments: teacher);
-      },
+      onTap: () {},
       child: SizedBox(
         width: width(context),
         child: Column(
@@ -24,7 +22,7 @@ class TeacherItem extends StatelessWidget {
                 SizedBox(
                   width: width(context) * 0.78,
                   child: Text(
-                    "${teacher.surname} ${teacher.name}",
+                    group.groupName,
                     style: AppTextStyles.labelLarge(context,
                         fontSize: 16.h, fontWeight: FontWeight.w400),
                   ),

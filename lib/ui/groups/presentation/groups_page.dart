@@ -8,7 +8,7 @@ class GroupsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AdaptiveTheme.of(context).theme.backgroundColor,
       body: Padding(
-        padding: EdgeInsets.all(16.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: Column(
           children: [
             OnTap(
@@ -32,20 +32,21 @@ class GroupsPage extends StatelessWidget {
             SizedBox(height: 6.h),
             Divider(color: AdaptiveTheme.of(context).theme.focusColor),
             SizedBox(height: 12.h),
-            BlocProvider(
-              create: (context) => GroupsBloc()..add(GetAllGroupsEvent()),
-              child: BlocBuilder<GroupsBloc, GroupsState>(
-                builder: (context, state) {
-                  if (state.status == ResponseStatus.inSuccess) {
-                    List<GroupModel> groups = state.groups;
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: groups.length,
-                        itemBuilder: (context, index) =>
-                            GroupItem(group: groups[index]));
-                  }
-                  return Container();
-                },
+            Expanded(
+              child: BlocProvider(
+                create: (context) => GroupsBloc()..add(GetAllGroupsEvent()),
+                child: BlocBuilder<GroupsBloc, GroupsState>(
+                  builder: (context, state) {
+                    if (state.status == ResponseStatus.inSuccess) {
+                      List<GroupModel> groups = state.groups;
+                      return ListView.builder(
+                          itemCount: groups.length,
+                          itemBuilder: (context, index) =>
+                              GroupItem(group: groups[index]));
+                    }
+                    return Container();
+                  },
+                ),
               ),
             )
           ],

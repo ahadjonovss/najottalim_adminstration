@@ -10,6 +10,7 @@ class App extends StatelessWidget {
           create: (context) => StudentsBloc()..add(GetAllUsersEvent())),
       BlocProvider(
           create: (context) => TeachersBloc()..add(GetAllTeachersEvent())),
+      BlocProvider(create: (context) => GroupsBloc()..add(GetAllGroupsEvent())),
     ], child: MyApp());
   }
 }

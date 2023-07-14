@@ -41,6 +41,9 @@ export 'package:najottalim_adminstration/ui/students/presentation/widgets/studen
 export 'package:najottalim_adminstration/ui/teachers/bloc/teachers_bloc/teachers_bloc.dart';
 export 'package:najottalim_adminstration/ui/teachers/data/models/teacher_model.dart';
 export 'package:najottalim_adminstration/ui/teachers/data/repository/teachers_repository.dart';
+export 'package:najottalim_adminstration/ui/teachers/presentation/sub_screens/add_group_to_teacher.dart';
+export 'package:najottalim_adminstration/ui/teachers/presentation/sub_screens/add_teacher_page.dart';
+export 'package:najottalim_adminstration/ui/teachers/presentation/sub_screens/teacher_page.dart';
 export 'package:najottalim_adminstration/ui/widgets/on_tap.dart';
 export 'package:najottalim_adminstration/utils/constants/app_colors.dart';
 export 'package:najottalim_adminstration/utils/constants/app_error_snackbar.dart';
