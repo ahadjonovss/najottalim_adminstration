@@ -21,6 +21,7 @@ class AddStudentBloc extends Bloc<AddStudentEvent, AddStudentState> {
     emit(state.copyWith(status: ResponseStatus.inProgress));
     MyResponse myResponse = await getIt<StudentsRepository>().addStudent(
         StudentModel(
+            email: state.email,
             balls: [],
             docId: '',
             groupId: '',

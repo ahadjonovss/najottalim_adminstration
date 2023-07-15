@@ -8,9 +8,13 @@ class StudentModel {
   final String surname;
   final List balls;
   GroupModel? group;
+  final String email;
+  final String password;
 
   StudentModel(
       {required this.balls,
+      required this.email,
+      this.password = "12345678",
       required this.docId,
       this.group,
       required this.groupId,
@@ -20,11 +24,13 @@ class StudentModel {
 
   factory StudentModel.fromJson(Map<String, dynamic> json) {
     return StudentModel(
+        email: json["email"] ?? '',
         balls: json['balls'].map((e) => BallModel.fromJson(e)).toList(),
         docId: json["docId"] ?? '',
         groupId: json["groupId"] ?? '',
         name: json["name"] ?? '',
         surname: json["surname"] ?? '',
+        password: json["password"] ?? '',
         userId: json["userId"] ?? '');
   }
 
@@ -35,6 +41,8 @@ class StudentModel {
       "groupId": groupId,
       "name": name,
       "surname": surname,
+      "email": email,
+      "password": password
     };
   }
 
@@ -45,6 +53,8 @@ class StudentModel {
       "groupId": newGroupId,
       "name": name,
       "surname": surname,
+      "email": email,
+      "password": password
     };
   }
 }
