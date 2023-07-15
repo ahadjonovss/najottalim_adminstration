@@ -12,7 +12,7 @@ class SelectableStudentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return student.groupId.isEmpty
+    return student.groupId.isNotEmpty
         ? OnTap(
             onTap: onTap,
             child: Container(

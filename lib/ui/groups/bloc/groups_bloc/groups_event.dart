@@ -4,3 +4,8 @@ part of 'groups_bloc.dart';
 abstract class GroupsEvent {}
 
 class GetAllGroupsEvent extends GroupsEvent {}
+
+class GetGroupsStudentsEvent extends GroupsEvent {
+  List studentIds;
+  GetGroupsStudentsEvent(this.studentIds);
+}

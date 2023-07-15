@@ -54,7 +54,28 @@ class GroupsRepository {
       await instance
           .collection("groups")
           .doc(groupId)
-          .update({"students": students.map((e) => e.toGroupJson(groupId))});
+          .update({"students": students.map((e) => e.docId)});
+    } catch (e) {
+      myResponse.message = e.toString();
+    }
+
+    return myResponse;
+  }
+
+  Future<MyResponse> getGroupsStudents(List docIds) async {
+    MyResponse myResponse = MyResponse();
+    FirebaseFirestore instance = getFirebaseInstance();
+    List documents = [];
+    try {
+      for (String documentId in docIds) {
+        var snapshot = await instance
+            .collection("students")
+            .where("docId", isEqualTo: documentId)
+            .get();
+        documents.add(snapshot.docs.first);
+      }
+      myResponse.data =
+          documents.map((e) => StudentModel.fromJson(e.data())).toList();
     } catch (e) {
       myResponse.message = e.toString();
     }

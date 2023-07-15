@@ -1,5 +1,3 @@
-import 'package:najottalim_adminstration/ui/students/data/models/student_model.dart';
-
 class GroupModel {
   final String lessonTime;
   final String groupName;
@@ -19,9 +17,7 @@ class GroupModel {
         groupId: json["groupId"] ?? '',
         groupName: json["name"] ?? '',
         lessonTime: json["lessonTime"] ?? '',
-        students: (json["students"] ?? [])
-            .map((e) => StudentModel.fromJson(e))
-            .toList(),
+        students: json["students"] ?? [],
         room: json["room"] ?? '');
   }
 
