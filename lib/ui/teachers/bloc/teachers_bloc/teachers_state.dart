@@ -3,10 +3,10 @@ part of 'teachers_bloc.dart';
 @immutable
 class TeachersState extends Equatable {
   ResponseStatus status;
-  ResponseStatus groupsStatus;
   List<TeacherModel> teachers;
   String message;
   List<GroupModel> groups;
+  ResponseStatus groupsStatus;
 
   TeachersState(
       {this.message = '',
