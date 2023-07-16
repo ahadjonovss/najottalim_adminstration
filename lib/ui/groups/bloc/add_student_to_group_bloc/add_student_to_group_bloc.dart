@@ -23,9 +23,9 @@ class AddStudentToGroupBloc
 
   addStudentsToTheGroup(AddStudentsToTheGroupEvent event, emit) async {
     emit(state.copyWith(status: ResponseStatus.inProgress));
-    List<StudentModel> students = [];
+    List students = [];
     students.addAll(event.students);
-    students.addAll(state.selectedStudents);
+    students.addAll(state.selectedStudents.map((e) => e.docId));
     MyResponse myResponse = await getIt<GroupsRepository>()
         .addStudentsToTheGroup(event.groupId, students);
     if (myResponse.message.isNull) {

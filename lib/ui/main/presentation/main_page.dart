@@ -10,6 +10,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           elevation: 0,
           backgroundColor: AdaptiveTheme.of(context).theme.backgroundColor,
           title: Image.asset(

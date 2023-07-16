@@ -10,7 +10,7 @@ class SelectStudentEvent extends AddStudentToGroupEvent {
 
 class AddStudentsToTheGroupEvent extends AddStudentToGroupEvent {
   String groupId;
-  List<StudentModel> students;
+  List students;
 
   AddStudentsToTheGroupEvent(this.students, this.groupId);
 }

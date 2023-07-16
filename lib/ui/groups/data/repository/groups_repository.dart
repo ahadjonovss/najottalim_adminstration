@@ -40,7 +40,7 @@ class GroupsRepository {
   }
 
   Future<MyResponse> addStudentsToTheGroup(
-      String groupId, List<StudentModel> students) async {
+      String groupId, List students) async {
     MyResponse myResponse = MyResponse();
     FirebaseFirestore instance = getFirebaseInstance();
 
@@ -48,13 +48,13 @@ class GroupsRepository {
       for (var i in students) {
         await instance
             .collection("students")
-            .doc(i.docId)
+            .doc(i)
             .update({"groupId": groupId});
       }
       await instance
           .collection("groups")
           .doc(groupId)
-          .update({"students": students.map((e) => e.docId)});
+          .update({"students": students});
     } catch (e) {
       myResponse.message = e.toString();
     }
