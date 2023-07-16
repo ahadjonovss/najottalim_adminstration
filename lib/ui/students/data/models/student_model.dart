@@ -25,7 +25,7 @@ class StudentModel {
   factory StudentModel.fromJson(Map<String, dynamic> json) {
     return StudentModel(
         email: json["email"] ?? '',
-        balls: json['balls'].map((e) => BallModel.fromJson(e)).toList(),
+        balls: (json['balls'] ?? []).map((e) => BallModel.fromJson(e)).toList(),
         docId: json["docId"] ?? '',
         groupId: json["groupId"] ?? '',
         name: json["name"] ?? '',

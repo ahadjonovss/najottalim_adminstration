@@ -15,6 +15,7 @@ class StudentsBloc extends Bloc<StudentsEvent, StudentsState> {
       emit(state.copyWith(
           status: ResponseStatus.inSuccess, students: myResponse.data));
     } else {
+      print(myResponse.message);
       emit(state.copyWith(status: ResponseStatus.inFail));
     }
   }

@@ -19,6 +19,7 @@ class StudentsRepository {
           some.docs.map((e) => StudentModel.fromJson(e.data())).toList();
       myResponse.data = users;
     } catch (e) {
+      print(e.toString());
       myResponse.message = e.toString();
     }
 

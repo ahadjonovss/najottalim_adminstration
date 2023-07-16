@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             onGenerateRoute: AppRoutes.generateRoute,
             debugShowCheckedModeBanner: false,
             // home: Material(child: EnterInfoPage()),
-            title: 'Bookmeri',
+            title: 'ADMIN APP NT',
           ),
           light: AppTheme.light,
           initial: AdaptiveThemeMode.dark,
