@@ -1,7 +1,6 @@
 import 'package:najottalim_adminstration/ui/groups/presentation/groups_page.dart';
 import 'package:najottalim_adminstration/ui/students/presentation/students_page.dart';
 import 'package:najottalim_adminstration/ui/teachers/presentation/teachers_page.dart';
-import 'package:najottalim_adminstration/utils/constants/app_images.dart';
 import 'package:najottalim_adminstration/utils/tools/file_importer.dart';
 
 class MainPage extends StatelessWidget {
@@ -40,6 +39,7 @@ class MainPage extends StatelessWidget {
                   ],
                   indicatorColor: AdaptiveTheme.of(context).theme.cardColor,
                 ),
+                SizedBox(height: 16.h),
                 const Expanded(
                   child: TabBarView(children: [
                     StudentsPage(),
