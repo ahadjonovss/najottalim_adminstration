@@ -9,6 +9,7 @@ class AddStudentToGroupBloc
       : super(AddStudentToGroupState(selectedStudents: [])) {
     on<SelectStudentEvent>(selectStudent);
     on<AddStudentsToTheGroupEvent>(addStudentsToTheGroup);
+    on<RemoveStudentsToTheGroupEvent>(removeStudentsToTheGroup);
   }
 
   selectStudent(SelectStudentEvent event, emit) {
@@ -33,6 +34,21 @@ class AddStudentToGroupBloc
     } else {
       emit(state.copyWith(
           status: ResponseStatus.inFail, message: myResponse.message));
+    }
+  }
+
+  removeStudentsToTheGroup(RemoveStudentsToTheGroupEvent event, emit) async {
+    emit(state.copyWith(removeStatus: ResponseStatus.inProgress));
+    MyResponse myResponse = await getIt<GroupsRepository>()
+        .removeStudentsToTheGroup(
+            removed: event.removed,
+            allStudents: event.students,
+            groupId: event.groupId);
+    if (myResponse.message.isNull) {
+      emit(state.copyWith(removeStatus: ResponseStatus.inSuccess));
+    } else {
+      emit(state.copyWith(
+          removeStatus: ResponseStatus.inFail, message: myResponse.message));
     }
   }
 }

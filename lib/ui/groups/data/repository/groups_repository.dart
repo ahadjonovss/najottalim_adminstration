@@ -43,7 +43,6 @@ class GroupsRepository {
       String groupId, List students) async {
     MyResponse myResponse = MyResponse();
     FirebaseFirestore instance = getFirebaseInstance();
-
     try {
       for (var i in students) {
         await instance
@@ -55,6 +54,34 @@ class GroupsRepository {
           .collection("groups")
           .doc(groupId)
           .update({"students": students});
+    } catch (e) {
+      myResponse.message = e.toString();
+    }
+
+    return myResponse;
+  }
+
+  Future<MyResponse> removeStudentsToTheGroup(
+      {required String removed,
+      required List allStudents,
+      required String groupId}) async {
+    MyResponse myResponse = MyResponse();
+    FirebaseFirestore instance = getFirebaseInstance();
+
+    allStudents.remove(removed);
+    print(allStudents.runtimeType);
+    print("MANAA");
+    print("MANA $groupId");
+    try {
+      // await instance
+      //     .collection("students")
+      //     .doc(removed)
+      //     .update({"groupId": ''});
+
+      await instance
+          .collection("groups")
+          .doc(groupId)
+          .update({"students": allStudents});
     } catch (e) {
       myResponse.message = e.toString();
     }

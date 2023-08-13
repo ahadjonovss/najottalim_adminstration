@@ -14,3 +14,12 @@ class AddStudentsToTheGroupEvent extends AddStudentToGroupEvent {
 
   AddStudentsToTheGroupEvent(this.students, this.groupId);
 }
+
+class RemoveStudentsToTheGroupEvent extends AddStudentToGroupEvent {
+  String groupId;
+  List students;
+  String removed;
+
+  RemoveStudentsToTheGroupEvent(
+      {required this.students, required this.groupId, required this.removed});
+}
